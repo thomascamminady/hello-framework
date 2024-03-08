@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Arbeitsblatt | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight,wide.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight,wide.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="./_observablehq/client.js">
+<link rel="modulepreload" href="./_observablehq/runtime.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.13/+esm.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/+esm.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3@7.8.5/+esm.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/+esm.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/+esm.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/+esm.js">
+<script type="module">
+
+import {define} from "./_observablehq/client.js";
+import {registerFile} from "./_observablehq/stdlib.js";
+
+registerFile("./penguins.csv", {"name":"./penguins.csv","mimeType":"text/csv","path":"./_file/penguins.9d329016.csv"});
+
+define({id: "2dc4afb3", inputs: ["FileAttachment"], outputs: ["penguins","errors"], body: (FileAttachment) => {
+const penguins = FileAttachment("penguins.csv").csv({typed: true});
+let errors = []
+return {penguins,errors};
+}});
+
+define({id: "7e0a226a", inputs: ["Inputs","penguins","display"], body: async (Inputs,penguins,display) => {
+display(await(
+Inputs.table(penguins)
+))
+}});
+
+define({id: "a785a774", inputs: ["penguins","display"], body: async (penguins,display) => {
+display(await(
+penguins
+))
+}});
+
+define({id: "466f6ab0", inputs: ["view","Inputs"], outputs: ["gerade"], body: (view,Inputs) => {
+const gerade = view(Inputs.form([
+  Inputs.range([-0.05, 0.05], {step: 0.0001, label: "slope"}),
+  Inputs.range([100.0, 300.0], {step: 1, label: "offset"}),
+]));
+return {gerade};
+}});
+
+define({id: "ce7920e9", inputs: ["gerade","penguins","errors"], outputs: ["gerade_array","error","min","results"], body: (gerade,penguins,errors) => {
+const gerade_array = [
+    {"body_mass_g":0,"flipper_length_mm":gerade[1]},
+    {"body_mass_g":10000,"flipper_length_mm":gerade[1]+gerade[0]*10000.0}
+]
+let error = 0
+for (let step = 0; step < penguins.length; step++){
+    penguins[step]["intersection"] = gerade[1] + gerade[0]*penguins[step]["body_mass_g"]
+    penguins[step]["error"] = (penguins[step]["intersection"] - penguins[step]["flipper_length_mm"])
+    error = error + Math.abs(penguins[step]["error"])
+
+}
+errors.push({"slope":gerade[0],"offset":gerade[1],"error":Math.log(error)})
+
+
+let min = Math.min(...errors.map(item => item.error))
+let results = errors.filter(item => item.error === min)
+return {gerade_array,error,min,results};
+}});
+
+define({id: "3ae6c7ad", inputs: ["Plot","gerade","errors","results","display"], body: async (Plot,gerade,errors,results,display) => {
+display(await(
+Plot.plot({
+      title: `gerade: (m,n) =(${gerade})`,
+      grid: true,
+     
+      color: {legend: true,scheme:"inferno"},
+      marks: [        
+        Plot.dot(errors, {x: "slope", y: "offset", stroke: "error",fill:"error", tip: true}),
+        Plot.dot(errors.slice(-1), {x: "slope", y: "offset", stroke: "error",fill:"error", "r":5,tip: true}),
+        Plot.dot(results, {x: "slope", y: "offset", stroke: "error","r":15,tip: true}),
+       
+      ]
+    })
+))
+}});
+
+define({id: "ffe3b7cf", inputs: ["Plot","width","penguins","gerade_array","display"], body: async (Plot,width,penguins,gerade_array,display) => {
+display(await(
+Plot.plot({
+      title: "How big are penguins, anyway? 🐧",
+      width,
+      grid: true,
+      x: {label: "Body mass (g)",domain:[2000,7000]},
+      y: {label: "Flipper length (mm)",domain:[150,250]},
+      color: {legend: true},
+      marks: [
+        // Plot.linearRegressionY(penguins, {x: "body_mass_g", y: "flipper_length_mm", stroke: "species"}),
+        Plot.ruleX(penguins, {x: "body_mass_g", y1: "flipper_length_mm",y2:"intersection", stroke: "species", tip: true}),
+        Plot.dot(penguins, {x: "body_mass_g", y: "flipper_length_mm", stroke: "species", tip: true}),
+        Plot.line(gerade_array,{x: "body_mass_g", y: "flipper_length_mm"})
+        
+      ]
+    })
+))
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">Hello Framework</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link observablehq-link-active"><a href="./arbeitsblatt">Arbeitsblatt</a></li>
+    <li class="observablehq-link"><a href="./example-dashboard">Example dashboard</a></li>
+    <li class="observablehq-link"><a href="./example-report">Example report</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type), h2:first-child, :not(h1) + h2">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#subheading">Subheading</a></li>
+<li class="observablehq-secondary-link"><a href="#a-cool-plot">A cool plot</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="a-title" tabindex="-1"><a class="observablehq-header-anchor" href="#a-title">A title</a></h1>
+<p>some text some text some text some text some text some text  some text some text some text some text some text some text some text some text some text some text some text some text  some text some text some text some text some text some text some text some text some text some text some text some text  some text some text some text some text some text some text some text some text some text some text some text some text  some text some text some text some text some text some text some text some text some text some text some text some text  some text some text some text some text some text some text</p>
+<h2 id="subheading" tabindex="-1"><a class="observablehq-header-anchor" href="#subheading">Subheading</a></h2>
+<div id="cell-2dc4afb3" class="observablehq observablehq--block"></div>
+<div id="cell-7e0a226a" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-a785a774" class="observablehq observablehq--block observablehq--loading"></div>
+<h2 id="a-cool-plot" tabindex="-1"><a class="observablehq-header-anchor" href="#a-cool-plot">A cool plot</a></h2>
+<div id="cell-466f6ab0" class="observablehq observablehq--block"></div>
+<div id="cell-ce7920e9" class="observablehq observablehq--block"></div>
+<div id="cell-3ae6c7ad" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-ffe3b7cf" class="observablehq observablehq--block observablehq--loading"></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./"><span>Hello Framework</span></a><a rel="next" href="./example-dashboard"><span>Example dashboard</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-03-08T11:01:21">Mar 8, 2024</a>.</div>
+</footer>
+</div>
