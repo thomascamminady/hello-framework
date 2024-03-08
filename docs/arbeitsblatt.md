@@ -53,20 +53,6 @@ let results = errors.filter(item => item.error === min)
 
 
 
-```js
-Plot.plot({
-      title: `gerade: (m,n) =(${gerade})`,
-      grid: true,
-     
-      color: {legend: true,scheme:"inferno"},
-      marks: [        
-        Plot.dot(errors, {x: "slope", y: "offset", stroke: "error",fill:"error", tip: true}),
-        Plot.dot(errors.slice(-1), {x: "slope", y: "offset", stroke: "error",fill:"error", "r":5,tip: true}),
-        Plot.dot(results, {x: "slope", y: "offset", stroke: "error","r":15,tip: true}),
-       
-      ]
-    })
-```
 
 
 ```js
@@ -89,3 +75,19 @@ Plot.plot({
 
 
 
+
+
+```js
+Plot.plot({
+      title: `gerade: (m,n) =(${gerade})`,
+      grid: true,
+     
+      color: {legend: true,scheme:"inferno"},
+      marks: [        
+        Plot.dot(errors, {x: "slope", y: "offset", stroke: "error",fill:"error", tip: true}),
+        Plot.dot(errors.slice(-1), {x: "slope", y: "offset", stroke: "error",fill:"error", "r":5,tip: true}),
+        Plot.dot(results, {x: "slope", y: "offset", stroke: "error","r":15,tip: true}),
+       
+      ]
+    })
+```
